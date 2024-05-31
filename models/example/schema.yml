@@ -19,3 +19,22 @@ models:
         data_tests:
           - unique
           - not_null
+
+  - name: tracks
+    description: "A more useful version of raw.tracks table"
+
+  - name: artists
+    description: "A more useful version of raw.artists table"
+
+  - name: top_100
+    description: "A more useful version of raw.top_100 table"
+
+  - name: popular_songs
+    description: "A more useful version of raw.popular_songs table"
+    columns:
+      - name: valence_percent
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100
+              inclusive: true

@@ -1,0 +1,25 @@
+{{ config(materialized='table') }}
+
+select track_name as song_title,
+  string_to_array(regexp_replace("artist(s)_name", '''|""', '', 'g'), ',') as artists,
+  cast(artist_count as integer),
+  make_date(released_year::int, released_month::int, released_day::int) as release_date,
+  in_spotify_playlists,
+  in_spotify_charts,
+  streams,
+  in_apple_playlists,
+  in_apple_charts,
+  in_deezer_playlists,
+  in_deezer_charts,
+  in_shazam_charts,
+  bpm as beats_per_minute,
+--  key,
+--  mode,
+  "danceability_%" as danceability_percent,
+  "valence_%" as valence_percent,
+  "energy_%" as energy_percent,
+  "acousticness_%" as acousticness_percent,
+  "instrumentalness_%" as instrumentalness_percent,
+  "liveness_%" as liveness_percent,
+  "speechiness_%" as speechiness_percent
+from raw.popular_songs
