@@ -5,3 +5,4 @@ logs/
 seeds/*.csv
 dbt_demo-venv/
 data/*.csv
+.swp
