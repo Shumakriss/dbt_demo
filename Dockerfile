@@ -1,20 +1,8 @@
-FROM ubuntu:22.04
+# Container image that runs your code
+FROM alpine:3.10
 
-# Update package lists and install necessary packages
-RUN apt-get update && \
-    apt-get install -y \
-    python3 \
-    python3-pip \
-    && rm -rf /var/lib/apt/lists/*
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY entrypoint.sh /entrypoint.sh
 
-# Set the working directory inside the container
-WORKDIR /app
-
-# Copy application files into the container
-COPY . /app
-
-# Install Python dependencies (if any)
-RUN pip3 install -r requirements.txt
-
-# Define the command to run when the container starts
-CMD ["python3", "your_app.py"]
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
+ENTRYPOINT ["/entrypoint.sh"]
