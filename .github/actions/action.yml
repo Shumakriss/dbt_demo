@@ -11,6 +11,6 @@ outputs:
     description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: ghcr.io/dbt-labs/dbt-core:1.10.11
+  image: 'Dockerfile'
   args:
     - ${{ inputs.who-to-greet }}
