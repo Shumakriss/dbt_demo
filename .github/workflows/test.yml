@@ -1,0 +1,22 @@
+name: Build and Run Docker Container
+
+on: [push]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t my-app-image .
+
+      - name: Run steps in container
+        container: my-app-image
+        steps:
+          - name: Execute command in container
+            run: echo "Hello from inside the container!"
+          - name: Another step in container
+            run: ls -l /app # Assuming your Dockerfile copies files to /app
