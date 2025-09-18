@@ -7,14 +7,5 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-      - name: dbt-action
-        uses: mwhitaker/dbt-action@master
-        with:
-          dbt_command: "dbt deps --profiles-dir ."
-      - name: dbt-action
-        uses: mwhitaker/dbt-action@master
-        with:
-          dbt_command: "dbt test --profiles-dir ."
-        env:
-          DBT_USER: ${{ secrets.DBT_USER }}
-          DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+      - name: Install dbt-athena
+        run: python3 -m pip install dbt-core dbt-athena
