@@ -2,8 +2,8 @@ dbt_demo:
   outputs:
     dev:
       type: athena
-      s3_staging_dir: s3://staging/
-      s3_data_dir: s3://data/
+      s3_staging_dir: s3://maker-dbt-data/staging/
+      s3_data_dir: s3://maker-dbt-data/data/
       # s3_data_naming: [table_unique] # the type of naming convention used when writing to S3
       region_name: us-east-1
       database: awsdatacatalog
