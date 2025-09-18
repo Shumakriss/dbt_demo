@@ -15,6 +15,6 @@ jobs:
         uses: mwhitaker/dbt-action@master
         with:
           dbt_command: "dbt test --profiles-dir ."
-         env:
+        env:
           DBT_USER: ${{ secrets.DBT_USER }}
           DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
