@@ -6,8 +6,8 @@ dbt_demo:
       s3_data_dir: s3://data/
       # s3_data_naming: [table_unique] # the type of naming convention used when writing to S3
       region_name: us-east-1
-      database: default
-      schema: test
+      database: awsdatacatalog
+      schema: default
       # aws_profile_name: [optional profile to use from your AWS shared credentials file.]
       threads: 1
       num_retries: 0
