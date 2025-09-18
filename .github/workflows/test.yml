@@ -10,8 +10,11 @@ jobs:
       - name: dbt-action
         uses: mwhitaker/dbt-action@master
         with:
-          dbt_command: "dbt deps"
+          dbt_command: "dbt deps --profiles-dir ."
       - name: dbt-action
         uses: mwhitaker/dbt-action@master
         with:
-          dbt_command: "dbt test"
+          dbt_command: "dbt test --profiles-dir ."
+         env:
+          DBT_USER: ${{ secrets.DBT_USER }}
+          DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}

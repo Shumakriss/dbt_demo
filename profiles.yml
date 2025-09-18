@@ -1,14 +1,12 @@
-# profiles.yml
-my_dataset: # this needs to match the profile: in your dbt_project.yml file
-  target: dev
+dbt_demo:
   outputs:
     dev:
-      type: bigquery
-      method: service-account
-      keyfile: ./creds.json # THIS FILE WILL BE GENERATED USING SECRETS DURING BUILD TIME
-      project: gcloud-project # Replace this with your project id
-      dataset: mydataset # Replace this with dbt_your_name, e.g. dbt_bob
-      threads: 1
-      timeout_seconds: 300
-      location: US
-      priority: interactive
+      dbname: dbt
+      host: localhost
+      port: 5432
+      schema: dbt 
+      threads: 10
+      type: postgres
+      user: _user_ 
+      pass: _password_
+  target: dev
