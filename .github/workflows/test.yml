@@ -9,3 +9,7 @@ jobs:
         uses: actions/checkout@v5
       - name: Install dbt-athena
         run: python3 -m pip install dbt-core dbt-athena
+      - name: Install dbt deps
+        run: dbt deps
+      - name: Run dbt tests
+        run: dbt test
